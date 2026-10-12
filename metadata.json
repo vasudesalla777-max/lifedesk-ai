@@ -1,0 +1,6 @@
+{
+  "name": "LifeDesk AI",
+  "description": "An all-in-one personal productivity and everyday-life assistant powered by AI with database-aware intelligence, task management, smart notes, expense tracking, and document intelligence.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

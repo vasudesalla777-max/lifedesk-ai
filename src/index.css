@@ -1,0 +1,476 @@
+@import "tailwindcss";
+
+/* ============================================================
+   LifeDesk AI — Premium Futuristic Design System
+   Dark mode only · Orange/Amber accents · Glassmorphism
+   ============================================================ */
+
+@layer base {
+  :root {
+    --bg-base:       #07080a;
+    --bg-surface:    #0d0e12;
+    --bg-card:       rgba(15,17,22,0.85);
+    --bg-glass:      rgba(255,255,255,0.03);
+    --border:        rgba(255,255,255,0.07);
+    --border-hover:  rgba(245,158,11,0.35);
+    --accent:        #f59e0b;
+    --accent-dim:    rgba(245,158,11,0.15);
+    --accent-glow:   rgba(245,158,11,0.4);
+    --text-primary:  #f1f5f9;
+    --text-muted:    #64748b;
+    --text-subtle:   #374151;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; color-scheme: dark; }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Premium selection */
+  ::selection { background: rgba(245,158,11,0.3); color: #fff; }
+
+  /* Scrollbars */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 99px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(245,158,11,0.3); }
+}
+
+/* ============================================================
+   GRID TEXTURE BACKGROUND
+   ============================================================ */
+.grid-texture {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.dot-texture {
+  background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ============================================================
+   GLASS PANELS
+   ============================================================ */
+.glass {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(255,255,255,0.07);
+}
+
+.glass-card {
+  background: rgba(13,14,18,0.9);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.glass-card:hover {
+  border-color: rgba(245,158,11,0.2);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(245,158,11,0.08);
+}
+
+/* ============================================================
+   AMBER / ORANGE ACCENTS
+   ============================================================ */
+.accent-glow {
+  box-shadow: 0 0 24px rgba(245,158,11,0.35), 0 0 60px rgba(245,158,11,0.12);
+}
+
+.accent-glow-sm {
+  box-shadow: 0 0 12px rgba(245,158,11,0.3);
+}
+
+.text-accent { color: #f59e0b; }
+.bg-accent { background-color: #f59e0b; }
+.border-accent { border-color: rgba(245,158,11,0.35); }
+
+/* ============================================================
+   GRADIENT TEXT
+   ============================================================ */
+.gradient-text {
+  background: linear-gradient(135deg, #fff 0%, #f59e0b 50%, #fff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+}
+
+.gradient-text-static {
+  background: linear-gradient(135deg, #ffffff 30%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #000;
+  font-weight: 700;
+  font-size: 0.875rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 20px rgba(245,158,11,0.3);
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 30px rgba(245,158,11,0.45);
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+}
+.btn-primary:active { transform: translateY(0); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: rgba(255,255,255,0.04);
+  color: #94a3b8;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.07);
+  color: #f1f5f9;
+  border-color: rgba(255,255,255,0.14);
+}
+
+/* ============================================================
+   NAV ITEMS
+   ============================================================ */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.875rem;
+  border-radius: 10px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #64748b;
+  transition: all 0.15s;
+  border: 1px solid transparent;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+.nav-item:hover {
+  background: rgba(255,255,255,0.04);
+  color: #cbd5e1;
+}
+.nav-item.active {
+  background: rgba(245,158,11,0.1);
+  color: #f59e0b;
+  border-color: rgba(245,158,11,0.2);
+  font-weight: 600;
+  box-shadow: 0 0 16px rgba(245,158,11,0.08) inset;
+}
+
+/* ============================================================
+   STAT CARDS
+   ============================================================ */
+.stat-card {
+  background: rgba(13,14,18,0.92);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+.stat-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(245,158,11,0.04) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.25s;
+  pointer-events: none;
+}
+.stat-card:hover {
+  border-color: rgba(245,158,11,0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(245,158,11,0.06);
+}
+.stat-card:hover::before { opacity: 1; }
+
+/* ============================================================
+   INPUT FIELDS
+   ============================================================ */
+.field {
+  width: 100%;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.875rem;
+  color: #f1f5f9;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.field::placeholder { color: #374151; }
+.field:focus {
+  border-color: rgba(245,158,11,0.4);
+  box-shadow: 0 0 0 3px rgba(245,158,11,0.08);
+}
+
+/* ============================================================
+   BADGE CHIPS
+   ============================================================ */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.625rem;
+  border-radius: 99px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.chip-amber {
+  background: rgba(245,158,11,0.12);
+  color: #f59e0b;
+  border: 1px solid rgba(245,158,11,0.25);
+}
+.chip-green {
+  background: rgba(16,185,129,0.12);
+  color: #10b981;
+  border: 1px solid rgba(16,185,129,0.25);
+}
+.chip-red {
+  background: rgba(239,68,68,0.12);
+  color: #ef4444;
+  border: 1px solid rgba(239,68,68,0.25);
+}
+.chip-blue {
+  background: rgba(59,130,246,0.12);
+  color: #60a5fa;
+  border: 1px solid rgba(59,130,246,0.25);
+}
+.chip-purple {
+  background: rgba(139,92,246,0.12);
+  color: #a78bfa;
+  border: 1px solid rgba(139,92,246,0.25);
+}
+
+/* ============================================================
+   ORBS / GLOW ELEMENTS
+   ============================================================ */
+.orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+.orb-amber {
+  background: radial-gradient(circle, rgba(245,158,11,0.3) 0%, rgba(217,119,6,0.08) 60%, transparent 100%);
+}
+.orb-blue {
+  background: radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 70%);
+}
+
+/* ============================================================
+   FLOATING ANIMATIONS
+   ============================================================ */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-8px) rotate(0.5deg); }
+  66% { transform: translateY(-4px) rotate(-0.5deg); }
+}
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(245,158,11,0.3); }
+  50% { box-shadow: 0 0 40px rgba(245,158,11,0.6), 0 0 80px rgba(245,158,11,0.2); }
+}
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+@keyframes scan-line {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.anim-float { animation: float 6s ease-in-out infinite; }
+.anim-float-delayed { animation: float-delayed 8s ease-in-out infinite; }
+.anim-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+.anim-spin-slow { animation: spin-slow 20s linear infinite; }
+.anim-blink { animation: blink 1s step-end infinite; }
+.anim-fade-up { animation: fadeSlideUp 0.5s ease-out both; }
+
+/* ============================================================
+   PRIORITY INDICATORS
+   ============================================================ */
+.priority-high { color: #ef4444; }
+.priority-medium { color: #f59e0b; }
+.priority-low { color: #64748b; }
+
+/* ============================================================
+   PROGRESS BAR
+   ============================================================ */
+.progress-bar {
+  height: 4px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+  border-radius: 99px;
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ============================================================
+   HERO 3D PANEL STYLES
+   ============================================================ */
+.hero-panel {
+  background: rgba(13,14,18,0.95);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  overflow: hidden;
+  position: relative;
+}
+.hero-panel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(245,158,11,0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Scanning line effect */
+.scan-line {
+  position: absolute;
+  left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(245,158,11,0.5), transparent);
+  animation: scan-line 4s linear infinite;
+  pointer-events: none;
+}
+
+/* ============================================================
+   SIDEBAR & LAYOUT
+   ============================================================ */
+.sidebar {
+  background: rgba(7,8,10,0.97);
+  border-right: 1px solid rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* ============================================================
+   MESSAGE BUBBLES
+   ============================================================ */
+.msg-user {
+  background: linear-gradient(135deg, #d97706, #f59e0b);
+  color: #000;
+  border-radius: 18px 18px 4px 18px;
+  font-weight: 500;
+}
+.msg-ai {
+  background: rgba(15,17,22,0.95);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 18px 18px 18px 4px;
+  color: #e2e8f0;
+}
+
+/* ============================================================
+   DOCUMENT / FILE CARDS
+   ============================================================ */
+.file-card {
+  background: rgba(13,14,18,0.9);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+  transition: all 0.2s;
+  overflow: hidden;
+  cursor: pointer;
+}
+.file-card:hover {
+  border-color: rgba(245,158,11,0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+
+/* ============================================================
+   UTILITY
+   ============================================================ */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.divider {
+  height: 1px;
+  background: rgba(255,255,255,0.06);
+  margin: 0.75rem 0;
+}
+
+/* Thin top accent bar on cards */
+.card-accent-top::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(245,158,11,0.5), transparent);
+}
+
+/* Form focus ring override */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+}
+
+/* Markdown body prose */
+.prose-dark h1, .prose-dark h2, .prose-dark h3 { color: #f1f5f9; font-weight: 700; margin-bottom: 0.5rem; }
+.prose-dark p { color: #94a3b8; line-height: 1.7; margin-bottom: 0.75rem; }
+.prose-dark ul, .prose-dark ol { color: #94a3b8; padding-left: 1.25rem; margin-bottom: 0.75rem; }
+.prose-dark li { margin-bottom: 0.25rem; }
+.prose-dark strong { color: #f1f5f9; font-weight: 600; }
+.prose-dark code { background: rgba(245,158,11,0.1); color: #f59e0b; padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.8em; }
+.prose-dark blockquote { border-left: 2px solid rgba(245,158,11,0.4); padding-left: 1rem; color: #64748b; font-style: italic; }
